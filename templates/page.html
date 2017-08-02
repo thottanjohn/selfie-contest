@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+<br>
+<br>
+<br><br><br><br>
+<html>
+<style>
+  img{
+height: 500px;
+width: 400px;
+
+
+  }
+  a:active
+  {
+    content: "<i class="fa fa-heart" aria-hidden="true"></i>";
+  }
+#button_id
+{
+position: relative;
+    left: 365px;
+    top: -518px;
+
+}
+.textcos
+{
+  left: 1
+
+}
+</style>
+<!DOCTYPE html>
+
+<script src="https://use.fontawesome.com/68a1a56600.js"></script>
+<head>
+	<title> LOGIN- SelfieSpree</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	 <link rel="stylesheet" href="/static/css/main.css" />
+	 <style type="text/css">
+		  body{
+
+			 background-color:black;
+    		  }
+
+
+	</style>
+
+{% for i in pro %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+   <h1> {{i.username}}</h1>
+  <img src="{{i.image.url}}">
+  <div class="textpos">{{i.like}}</div>
+<a href="{% url 'pages' i.image_id %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+
+</form>
+<br>
+<br>
+{% endfor %}
+
+</html>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles%}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<script src="https://use.fontawesome.com/68a1a56600.js"></script>
+<head>
+	<title>EDIT-PROFILE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+        body{
+            padding: 0; margin: 0;
+            background-image: url("/static/assets/back4.jpg");
+
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body class="subpage">  
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+<div class="container">
+<center><i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">Loading...</span></center>
+<center>
+    <div class="container" style="width: 500px;">
+    <form method="POST" action="">
+    	{% csrf_token %}
+    	  {{ user_form.as_p }}
+         {{ profile_form.as_p }}
+        <center><a href="{% url 'auth_password_change' %}" class="button">ChangePassword</a></center>
+    
+
+       <br>
+
+    	<button type="submit">Submit</button>
+        
+    </form>
+    </div>
+</center>
+
+</div>
+
+<br>
+{% endblock %}
+
+
+
+</body>
+</html>

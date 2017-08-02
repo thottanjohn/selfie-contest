@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+
+<!DOCTYPE html>
+<html>
+<script src="https://use.fontawesome.com/68a1a56600.js"></script>
+<head>
+	<title> LOGIN- SelfieSpree</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	 <link rel="stylesheet" href="/static/css/main.css" />
+	 <style type="text/css">
+		  body{
+
+			 background-image: url("/static/assets/world.jpg");
+		  }
+
+
+	</style>
+
+</head>
+<body class="subpage">  
+
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+
+
+
+
+
+
+
+      <h2><center><strong>WELCOME!</strong></center></h2>
+      <h2><center><strong>You Can Login Here!</strong></center></h2>
+
+      <div  class="container">
+      
+      <h3><center><strong>LOGIN</strong></center></h3 >
+      <div class="container" style="width: 500px;">
+      <form method="post">
+       <fieldset>
+       {% csrf_token %}
+       {{ form|crispy }}
+       <button type="submit">Login</button>
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       &nbsp;
+
+       <a href="{% url 'auth_password_reset' %}" class="button">Forgot Password?!</a>
+
+       </fieldset>
+      </form>
+      </div>
+      </div>
+
+      <div class="container">
+      	<h2><center><strong>Have'nt Signed Up Yet?!</strong></center></h2>
+      	<h1><center>Go Ahead!</center></h1>
+      	<footer>
+      		<center>
+      		<a href="{% url 'registration_register' %}" class="button">SignUp</a>
+      		</center>
+      		<br>
+      		<br>
+
+      	</footer>
+
+
+      </div>
+
+
+
+</body>
+</html>

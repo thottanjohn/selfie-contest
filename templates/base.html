@@ -1,0 +1,135 @@
+{% load staticfiles%}
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="heighth=device-height, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../favicon.ico">
+
+  
+    {% include 'head_css.html' %}
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+	<style>
+		body
+		{
+			margin: 0;
+			padding: 0;
+		}
+		#header
+		{
+			position:fixed;
+		}
+
+		</style>
+  </head>
+
+  <body>
+
+    <div class="container">
+    <header id="header" class="fadeIn animated" style="opacity: .9; height: 50px;">
+					 <nav >
+					 <div class="navbar-header">
+			
+                    <a href="{% url 'home' %}" class="logo"><strong>	&nbsp;	&nbsp;	&nbsp;	 		&nbsp;	&nbsp;	&nbsp;	 ONLine</strong>SelfieContest</a>
+
+								<a type="button" class="navPanelToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="False"   aria-controls="navbar">
+            				  <span class="fa fa-bars"></span>
+           					 </a>
+					 </div>
+						 <div id="navbar" class="navbar-collapse collapse">
+
+						 
+                        <SPAN TITLE=Home><a href="{% url 'home' %}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></SPAN>
+						 &nbsp;
+                        &nbsp;
+                        <SPAN TITLE=Contests><a href="{% url 'events' %}"><i class="fa fa-camera-retro fa-lg"></i>&nbsp;</a> </SPAN>
+						 			 &nbsp;
+                        &nbsp;
+								 {% if user.is_authenticated %}
+						 
+                        <SPAN TITLE=Profile><a href="{% url 'profile' %}"><i class="fa fa-user-circle-o fa-lg"></i>&nbsp;</a></SPAN>
+					 &nbsp;
+                        &nbsp;
+						{% endif %}
+                        <SPAN TITLE=AboutUs><a href="{% url 'about' %}"><i class="fa fa-book fa-lg"></i>&nbsp;</a></SPAN>
+				 			 &nbsp;
+                        &nbsp;
+				 {% if user.is_authenticated %}
+                        <SPAN TITLE=Logout><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+						 			 &nbsp;
+                        &nbsp;
+						 </div>
+  					</nav>
+
+				{% else %}
+						 
+                        <SPAN TITLE=Login><a href="{% url 'auth_login' %}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+						 			 &nbsp;
+                        &nbsp;
+                        <SPAN TITLE=SignUp><a href="{% url 'registration_register' %}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+									 &nbsp;
+                        &nbsp;
+						</div>
+					</nav>
+
+
+				{% endif %}
+						
+    
+
+
+			</header>
+
+      </div><!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    {% include 'javascript.html' %}
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+
+{% block content %}
+{% endblock %}
+<footer id="footer">
+				<div class="inner">
+
+					<h3>Get in touch</h3>
+
+	{% if forms %}
+	<div class="field half first">
+					<form action="" method="post">
+						{% csrf_token %}
+						{% for field in forms %}
+						<div class="field half first">
+							{{field.label_tag}}
+							{{field}}
+							</div>
+						{% endfor %}
+						<ul class="actions">
+							<input class="button alt" type="submit" value="Send Message"/>
+						</ul>
+					</form>
+	{% else %}
+	<div class="field half first">
+					<ul class="actions">
+						<a href="{% url 'about' %}">	<input class="button alt" type="button" value="Send Message"></a>
+						</ul>
+	{% endif %}
+					<div class="copyright">
+						&copy; : <a href="https://facebook.com/ashinshanly">ASHIN SHANLY</a>
+					</div>
+
+				</div>
+			</footer>
+   </body>
+</html>

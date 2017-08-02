@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+  {% block content  %}
+  	<title> SIGN UP- SelfieSpree</title>
+<meta charset="UTF-8" xmlns="http://www.w3.org/1999/html">
+  <link href="{% static 'css/stylers.css' %}"  rel="stylesheet" >
+   <style>
+ button
+   {
+    color: white;
+   }
+ </style>
+ {% include "body.html" %}
+ <style>
+   body
+{
+ background-image: url("/static/assets/back4.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center;
+}
+	label {
+		color:black;
+  }
+ </style>
+
+  <br>
+  <br>
+<body>
+  <div id="login-box">
+  <div class="left">
+    <h1 style="color:darkgreen">Sign up</h1>
+  <form method="post" action=".">
+    {% csrf_token %}
+      {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="display: none">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+      {% endfor %}
+    <button type="submit">Sign up</button>
+  </form>
+  </div>
+  <div class="right">
+    <br><br><br><br>
+    <br><br><br><br><br><br>
+     <a href="{% url 'social:begin' 'facebook' %}"><button class="social-signin facebook">Log in with facebook</button></a>
+     <a href="{% url 'social:begin' 'twitter' %}"><button class="social-signin twitter">Log in with Twitter</button></a>
+     <a href="{% url 'social:begin' 'github' %}"><button class="social-signin google">Log in with Github</button></a>
+
+  </div>
+  <div class="or" style="font-size: 25px;">OR</div>
+</div>
+  
+  
+</body>
+</html>
+{% endblock %}
