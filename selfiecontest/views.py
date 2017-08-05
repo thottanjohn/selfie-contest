@@ -31,23 +31,6 @@ def home(request):
         'forms': forms
         }
     return render(request,'index.html',context)
-
-def about(request):
-    title = "welcome %s" % request.user
-    forms = ContactForm(request.POST)
-    if forms.is_valid():
-        form_mail = form.cleaned_data.get("email")
-        form_message = form.cleaned_data.get("message")
-        form_full_name = form.cleaned_data.get("full_name")
-        subject = 'site contact form'
-        from_email = form_mail
-        to_email = [settings.EMAIL_HOST_USER, ]
-        contact_message = "Hello %s,Welcome to new era" % form_full_name
-        send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
-    context = {
-        'forms': forms
-    }
-    return render(request,"about.html",context)
 class EntryCreate(CreateView):
             model=Picto
             template_name="entry.html"
@@ -162,8 +145,3 @@ def about(request):
         'forms': forms
     }
     return render(request,"about.html",context)
-def slide(request):
-    pro=Picto.objects.all()
-    return render(request,"lightbox.html",{'pro':pro})
-def bas(request):
-    return render(request,"bas.html")

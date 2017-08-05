@@ -32,8 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'contest.apps.ContestConfig',
-    'music.apps.MusicConfig',
-	'polls.apps.PollsConfig',
     'django.contrib.sites',
     'django.contrib.admin',
     'registration' ,
