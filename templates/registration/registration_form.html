@@ -1,25 +1,12 @@
-{% extends "base.html" %}
+{% extends "based.html" %}
 {% load staticfiles %}
 
-  {% block content  %}
+  {% block a  %}
   	<title> SIGN UP- SelfieSpree</title>
 <meta charset="UTF-8" xmlns="http://www.w3.org/1999/html">
   <link href="{% static 'css/stylers.css' %}"  rel="stylesheet" >
-   <style>
- button
-   {
-    color: white;
-   }
- </style>
  {% include "body.html" %}
  <style>
-   body
-{
- background-image: url("/static/assets/back4.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center;
-}
-	label {
-		color:black;
-  }
  </style>
 
   <br>
@@ -59,4 +46,6 @@
   
 </body>
 </html>
+{% endblock %}
+{% block b %}
 {% endblock %}

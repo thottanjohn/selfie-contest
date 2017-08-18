@@ -7,8 +7,6 @@
 		<title>Events</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/animate.css">
 
 
@@ -177,7 +175,7 @@ img {
 					<a href="#">View more</a>
 				</figcaption>			
 			</figure>
-			<a href="{% url 'addentry' %}" class="button wow bounceInLeft animated" data-wow-delay=".6s"" style="float: left;">ENTER</a>
+			<a href="{% url 'addentry' %}" class="button wow bounceInLeft animated" data-wow-delay=".6s" style="float: left;">ENTER</a>
 			&nbsp;
 			&nbsp;
 			
@@ -185,11 +183,11 @@ img {
 			<a href="{% url 'detail' %}" class="button wow bounceInUp animated" data-wow-delay=".6s" style="float: left;">ENTRIES</a>
 
 
-			<a href="#" class="button wow bounceInRight animated" data-wow-delay=".8s" style="float: right;">ENTER</a>
+			<a href="{% url 'greenentry' %}" class="button wow bounceInRight animated" data-wow-delay=".8s" style="float: right;">ENTER</a>
 			&nbsp;
 			&nbsp;
 			
-			<a href="#" class="button wow bounceInUp animated" data-wow-delay=".8s" style="float: right;">ENTRIES</a>
+			<a href="{% url 'detail1' %}" class="button wow bounceInUp animated" data-wow-delay=".8s" style="float: right;">ENTRIES</a>
 		</div>
 		</div>
 		</div>

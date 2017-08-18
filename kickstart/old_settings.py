@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'register.apps.RegisterConfig',
     'django.contrib.sites',
     'django.contrib.admin',
     'registration' ,
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'social_django', 
     'selfiecontest',
+    'registrations',
     ]
 
 MIDDLEWARE = [

@@ -31,10 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'register.apps.RegisterConfig',
     'contest.apps.ContestConfig',
     'django.contrib.sites',
     'django.contrib.admin',
-    'registration' ,
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'register.apps.RegisterConfig',
     'django.contrib.sites',
     'django.contrib.admin',
     'registration' ,

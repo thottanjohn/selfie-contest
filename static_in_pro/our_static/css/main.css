@@ -2716,7 +2716,7 @@
 	}
 
 		.subpage #header {
-			background: #6cc091;
+			background: black;
 			top: 0;
 			height: 44px;
 			line-height: 44px;
@@ -3130,7 +3130,7 @@
 
 	#footer {
 		padding: 6em 0;
-		background: #6cc091;
+		background:black;
 		color: #fff;
 		text-align: center;
 	}

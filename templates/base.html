@@ -64,7 +64,7 @@
 				 			 &nbsp;
                         &nbsp;
 				 {% if user.is_authenticated %}
-                        <SPAN TITLE=Logout><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+                        <SPAN TITLE=Logout><a href="{% url 'register:auth_logout' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
 						 			 &nbsp;
                         &nbsp;
 						 </div>
@@ -72,15 +72,14 @@
 
 				{% else %}
 						 
-                        <SPAN TITLE=Login><a href="{% url 'auth_login' %}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+                        <SPAN TITLE=Login><a href="{% url 'register:auth_login' %}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
 						 			 &nbsp;
                         &nbsp;
-                        <SPAN TITLE=SignUp><a href="{% url 'registration_register' %}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
+                        <SPAN TITLE=SignUp><a href="{% url 'register:registration_register' %}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;</a></SPAN>
 									 &nbsp;
                         &nbsp;
 						</div>
 					</nav>
-
 
 				{% endif %}
 						
@@ -106,17 +105,22 @@
 					<h3>Get in touch</h3>
 
 	{% if forms %}
-	<div class="field half first">
 					<form action="" method="post">
-						{% csrf_token %}
-						{% for field in forms %}
+								{% csrf_token %}
 						<div class="field half first">
-							{{field.label_tag}}
-							{{field}}
-							</div>
-						{% endfor %}
+							<label for="id_full_name">Full Name</label>
+							<input name="full_name"  type="text" required id="id_full_name" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="id_email">Email</label>
+							<input name="email"  required id="id_email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="id_message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message" required></textarea>
+						</div>
 						<ul class="actions">
-							<input class="button alt" type="submit" value="Send Message"/>
+							<li><input value="Send Message" class="button alt" type="submit"></li>
 						</ul>
 					</form>
 	{% else %}

@@ -21,24 +21,38 @@ class SignUp(models.Model):
 
 class Picto(models.Model):
     image_id  = models.AutoField(primary_key=True)
-    user   = models.ForeignKey(User)
+    user   = models.CharField(max_length=100)
+    image  = models.FileField()
+    image_caption = models.CharField(max_length=100)
+    like  = models.IntegerField(default=0) 
+    def get_absolute_url(self):
+        return reverse('home') 
+    def __unicode__(self):
+        return unicode(self.user)
+    def has_liked(self,user_id):
+        return  userlike.objects.filter(image_id=self.image_id,user_id=user_id,favourite=True).count()>0
+
+class userlike(models.Model):
+    like_id  =  models.AutoField(primary_key=True)
+    image_id =  models.IntegerField()
+    user     =  models.ForeignKey(User)
+    favourite = models.BooleanField(default=False) 
+    def __unicode__(self):
+            return unicode(self.user)
+
+class GreenVibes(models.Model):
+    image_id  = models.AutoField(primary_key=True)
+    user   = models.ForeignKey(User,on_delete=models.CASCADE)
+    image_caption = models.CharField(max_length=100)
     image  = models.FileField()
     like  = models.IntegerField(default=0) 
     def get_absolute_url(self):
         return reverse('home') 
     def __unicode__(self):
         return unicode(self.user)
-
-class userlike(models.Model):
-    like_id=models.AutoField(primary_key=True)
-    image_id = models.IntegerField()
-    user   = models.ForeignKey(User)
-    favourite = models.BooleanField(default="False") 
-    def __unicode__(self):
-            return unicode(self.user)
-
-
-
+    def has_liked(self,user_id):
+        return  userlike.objects.filter(image_id=self.image_id,user_id=user_id,favourite=True).count()>0
+    
 class Profile(models.Model):
     """docstring for ClassName"""
     user = models.OneToOneField(User,on_delete=models.CASCADE)

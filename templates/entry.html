@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "based.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block a %}
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Submit your Awesome Pics</title>
+<title>{% block title %}Submit your Awesome Pics {% endblock %}</title>
     <style>
         cent{
             font-color:green;
@@ -16,23 +16,19 @@
 {% include "body.html" %}
     <br>
     <br>
-{% if user.is_authenticated %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 col-md-5">
-                    <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-   <form method="POST" action="{% url 'detail' %}">{% csrf_token %}
-            {{form.as_p}}
+                           <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                        <input type='hidden' name='csrfmiddlewaretoken' value='NXDErt7KFRR64Vb4WK3asKP9GIh1qjPUtXjVRU2MWVSL1hLhQPPnLggO027AKg9D' />
+            <p><label for="id_user">User:</label> <input type="text" name="user" required id="id_user" maxlength="100" value="{{request.user}}"  readonly /></p>
+<p><label for="id_image_caption">Image caption:</label> <input type="text" name="image_caption" required id="id_image_caption" maxlength="100" /></p>
+<p><label for="id_image">Image:</label> <input type="file" name="image" required id="id_image" /></p>
         <input class="btn btn-default" type="submit" value="Upload"/>
                     </form>
 </div>
     </div>
     </div>
-{% else %}
-<meta http-equiv="refresh" content="0; url=accounts/login">
-<br><br><br><br><br><br><br><br><br><br><br><br>
-{% endif %}
 <br>
 <br><br><br><br><br><br><br><br>
 {% endblock %}

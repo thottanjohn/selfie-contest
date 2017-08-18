@@ -36,7 +36,7 @@
     	{% csrf_token %}
     	  {{ user_form.as_p }}
          {{ profile_form.as_p }}
-        <center><a href="{% url 'auth_password_change' %}" class="button">ChangePassword</a></center>
+        <center><a href="{% url 'register:auth_password_change' %}" class="button">ChangePassword</a></center>
     
 
        <br>

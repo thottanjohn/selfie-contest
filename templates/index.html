@@ -18,7 +18,7 @@
 	
              body {
              	    padding: 0; margin: 0;  
-					 background:darkmagenta;
+					 background: #222242;;
                   }
                  
         	 #myDiv {
@@ -44,57 +44,45 @@
 		<!-- Header -->
 
 			<header id="header">
-				{% if user.is_authenticated %}
-				<div class="inner">
-					<a href="{% url 'home' %}" class="logo"><strong>Online</strong>SelfieContest</a> 
-						<a type="button" class="navPanelToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="False"   aria-controls="navbar">
+					 <nav >
+					 <div class="navbar-header">
+			
+                    <a href="{% url 'home' %}" class="logo"><strong>	&nbsp;	&nbsp;	&nbsp;	 		&nbsp;	&nbsp;	&nbsp;	 ONLine</strong>SelfieContest</a>
+
+								<a type="button" class="navPanelToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="False"   aria-controls="navbar">
             				  <span class="fa fa-bars"></span>
            					 </a>
+					 </div>
+						 <div id="navbar" class="navbar-collapse collapse">
+				
+			
 					<!--<a class="logo" href="#">
                 		<img style="max-width:50px; margin-top: -7px;" src="/static/assets/logo.png">
             		</a> -->
-					<nav id="nav">
+						
 
 						<a href="{% url 'home' %}"><i class="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;Home</a>
 						
 						<a href="{% url 'events' %}"><i class="fa fa-camera-retro fa-lg"></i>&nbsp;Events</a>
-						
+						{% if user.is_authenticated %}
 						<a href="{% url 'profile' %}"><i class="fa fa-user-circle-o fa-lg"></i>&nbsp;Profile</a>
+						{% endif %}
 						<a href="{% url 'about' %}"><i class="fa fa-book fa-lg"></i>&nbsp;AboutUs</a>
-						<a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;Logout</a>
+						 {% if user.is_authenticated %}
+						<a href="{% url 'register:auth_logout' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>&nbsp;Logout</a>
 						
+						 </div>
 					</nav>
-					
-
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
+			
 				{% else %}
-				<div class="inner">
-					<a href="{% url 'home' %}" class="logo" ><strong>ONLine</strong>SelfieContest</a> 
-						<a type="button" class="navPanelToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="False"   aria-controls="navbar">
-            				  <span class="fa fa-bars"></span>
-           					 </a>
-
-					<!--<a class="logo" href="#">
-                		<img style="max-width:50px; margin-top: -7px;" src="/static/assets/logo.png">
-            		</a> -->
-					<nav id="nav">
-
-						
-						<a href="{% url 'home' %}"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a>
-						
-
-						<a href="{% url 'events' %}"><i class="fa fa-camera-retro fa-lg"></i>&nbsp;Events</a>
-						
-						<a href="{% url 'about' %}"><i class="fa fa-book fa-lg"></i>&nbsp;AboutUs</a>
-						<a href="{% url 'auth_login' %}"><i class="fa fa-sign-in fa-lg"></i>&nbsp;Login</a>
-						<a href="{% url 'registration_register' %}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;SignUp</a>
+				
+						<a href="{% url 'register:auth_login' %}"><i class="fa fa-sign-in fa-lg"></i>&nbsp;Login</a>
+						<a href="{% url 'register:registration_register' %}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;SignUp</a>
+					</div>	
 					</nav>
 					
 
-					</nav>
-				</div>
+				
 				{% endif %}
 
 
@@ -103,7 +91,7 @@
 
 		<!-- Banner -->
 			<section id="banner" style="background:url('static/assets/city.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;">
-				
+				<br><br><br>
 
 				</style>
 				<div class="inner" >
@@ -209,39 +197,57 @@
 		
 
 		<!-- Footer -->
-			<footer id="footer">
+		{% if forms %}
+	<footer id="footer">
 				<div class="inner">
 
 					<h3>Get in touch</h3>
 
-					<form action="#" method="post">
-
+					<form action="" method="post">
+								{% csrf_token %}
 						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
+							<label for="id_full_name">Full Name</label>
+							<input name="full_name"  type="text" required id="id_full_name" placeholder="Name">
 						</div>
 						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
+							<label for="id_email">Email</label>
+							<input name="email"  required id="id_email" type="email" placeholder="Email">
 						</div>
 						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+							<label for="id_message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message" required></textarea>
 						</div>
 						<ul class="actions">
 							<li><input value="Send Message" class="button alt" type="submit"></li>
 						</ul>
 					</form>
-
+	{% else %}
+	<div class="field half first">
+					<ul class="actions">
+						<a href="{% url 'about' %}">	<input class="button alt" type="button" value="Send Message"></a>
+						</ul>
+	{% endif %}
 					<div class="copyright">
 						&copy; : <a href="https://facebook.com/ashinshanly">ASHIN SHANLY</a>
 					</div>
 
-				</div>
-			</footer>
-
+	<!--<div class="field half first">
+							<label for="id_full_name">Full name:</label>
+							<input type="text" name="full_name" required id="id_full_name" />
+							</div>
+						
+						<div class="field half first">
+							<label for="id_email">Email:</label>
+							<input type="email" name="email" required id="id_email" />
+							</div>
+						
+						<div class="field half first">
+							<label for="id_message">Message:</label>
+							<textarea name="message" id="id_message" rows="10" cols="40" required>
+</textarea>
+							</div>
 			
-			</div>
+			</div> -->
 
 
 		<!-- Scripts -->

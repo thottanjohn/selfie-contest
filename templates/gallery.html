@@ -1,0 +1,321 @@
+{% extends 'based.html' %}
+{% block a %}
+    <!-- Banners -->
+<div class="bt-innerpagebanner bt-innerpagebannerv2 bt-fullheight" data-vide-bg="poster: http://tasver.brighthemes.biz/wp-content/uploads/2017/06/banner-01.jpg" data-vide-options="position: 0% 50%">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="bt-innerbannercontent">
+                    <h1>Green Vibes</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="bt-btnscrollto" class="bt-btnscrollto bt-btnscroll" href="#bt-main">scroll</a>
+</div>
+<main id="bt-main" class="bt-main bt-haslayout">
+        <div class="vc_row wpb_row vc_row-fluid">
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+              <div class="vc_column-inner ">
+                  <div class="wpb_wrapper">
+                      <div id="galleryGeneral" class="bt-photogallery cbp" data-columnspace="0" data-gallerycolumns="3">
+                          {% for i in pro %}
+                          <div class="cbp-item gallery-3-columns-wide"  >
+                              <article class="bt-album">
+                                  <figure >
+                                      <div onclick="openModal();currentSlide({{forloop.counter}});" >
+                                      <img src="{{i.image.url}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"  alt="" srcset="{{i.image.url}} 633w,{{i.image.url}} 300w, {{i.image.url}} 600w" sizes="(max-width: 633px) 100vw, 633px" width="633" height="583" >
+                                      </div>
+                                        <figcaption>
+                                            <div class="bt-titleandinfo">
+                                                <div class="bt-albumtitle">
+                                                    <h3><a href="http://tasver.brighthemes.biz/gallery/twin-sister-album/">{{i.user}}</a></h3>
+                                                    </div>
+                                                    <ul class="bt-shareandlikes">
+                                                        <li><div class="bt-shapreicons">
+                                                            <a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://tasver.brighthemes.biz/gallery/twin-sister-album/&amp;text=TWIN Sister Album&tw_p=tweetbutton&url=http://tasver.brighthemes.biz/gallery/twin-sister-album/&via=Tasver Photography">
+                                                            <i class="fa fa-twitter"></i></a>
+                                                            <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://tasver.brighthemes.biz/gallery/twin-sister-album/&amp;t=TWIN Sister Album">
+                                                            <i class="fa fa-facebook"></i></a>
+                                                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://tasver.brighthemes.biz/gallery/twin-sister-album/&amp;title=TWIN Sister Album&amp;source=Tasver Photography">
+                                                            <i class="fa fa-linkedin"></i></a>
+                                                            <a target="" href="https://plusone.google.com/_/+1/confirm?hl=en-US&amp;url=http://tasver.brighthemes.biz/gallery/twin-sister-album/">
+                                                            <i class="fa fa-google-plus"></i></a>
+                                                            </div>
+                                                            <a class="bt-btnshare" href="javascript:void(0);"><span class="icon-share4"></span>
+                                                            <span>Share</span></a>
+                                                            </li>
+                                                            <li>
+                                                    <div id="like_show" >
+											        {% if i.liked %}
+											        <i data-catid="{{ i.image_id }}"   class="likes fa fa-heart fa-2x"  aria-hidden="true"></i>
+											        {% else %}
+											        <i data-catid="{{ i.image_id }}"   class="likes fa fa-heart-o fa-2x"  aria-hidden="true"></i>
+											        {% endif %}
+											        </div></li>
+                                                    <li><span>{{i.like}}</span>
+                                                             </li>
+                                                </ul>
+                                             </div>
+                                         </figcaption>
+                                    </figure>
+                                </article>
+                         </div>
+                         {% endfor %}
+                          </div>  
+                         <div id="bt-loadMore" class="bt-btnboxloadmore bt-sectionspace cbp-l-loadMore-button">
+                    <a href="http://tasver.brighthemes.biz/?page_id=368&number_of_posts=8&select_gallery_categories=7" class="cbp-l-loadMore-link" rel="nofollow">
+                    <span class="cbp-l-loadMore-defaultText">Load More</span>
+                    <span class="cbp-l-loadMore-loadingText">Loading...</span>
+                    <span class="cbp-l-loadMore-noMoreLoading">No More Work</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+      <!--************************************
+                    Footer Start
+            *************************************-->
+        <footer id="bt-footer" class="bt-footer bt-haslayout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="bt-newsletter">
+                            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                                                                    <h3>Newsletter</h3>
+                                                                <div class="bt-description">
+                                    <p>Latest Photos from Tasver Get alert for new Photoshoot.</p>
+                                </div>
+                                                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                <div class="bt-formtheme bt-formnewsletter">
+                                    <fieldset>
+                                        <div class="widget_wysija_cont shortcode_wysija"><div id="msg-form-wysija-shortcode5994421f6cd4c-1" class="wysija-msg ajax"></div><form id="form-wysija-shortcode5994421f6cd4c-1" method="post" action="#wysija" class="widget_wysija shortcode_wysija">
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Enter Your Email" placeholder="Enter Your Email" value="" />
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value="" />
+    </span>
+    
+</p>
+<input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe" />
+
+    <input type="hidden" name="form_id" value="1" />
+    <input type="hidden" name="action" value="save" />
+    <input type="hidden" name="controller" value="subscribers" />
+    <input type="hidden" value="1" name="wysija-page" />
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="1" />
+    
+ </form></div>                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="bt-instagramgallery">
+                            <ul>
+                                <li>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-01-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-01-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-05-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-05-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                    </li>
+                                <li>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-02-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-02-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-06-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-06-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-08-1.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-08-1.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                    </li>
+                                <li>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-03-3.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-03-3.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-07-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-07-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                    </li>
+                                <li>
+                                                                            <figure>
+                                            <a href="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-04-2.jpg" data-rel="prettyPhoto[instagramphotos]">
+                                                <img src="http://tasver.brighthemes.biz/wp-content/uploads/2017/06/img-04-2.jpg" alt="">
+                                            </a>
+                                        </figure>
+                                                                    </li>
+                            </ul>
+                            <div class="bt-instagrambox">
+                                <i><img src="http://tasver.brighthemes.biz/wp-content/themes/tasveer/images/icons/icon-02.png" alt=""></i>
+                                <span>@tasver</span>
+                                                                    <a class="bt-btn bt-btnblack bt-btn-lg" href="#"><span>follow now</span></a>
+                                                            </div>
+                        </div>
+                                                <div class="bt-footerbar">
+                            <div class="bt-navandcopyright">
+                                <nav class="bt-addnav">
+                                    <ul>
+                                        <li id="menu-item-641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-641"><a href="http://tasver.brighthemes.biz/">Home</a></li>
+<li id="menu-item-642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-642"><a href="#">FAQ</a></li>
+<li id="menu-item-643" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-643"><a href="#">TERMS OF SERVICES</a></li>
+<li id="menu-item-644" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-644"><a href="#">PRIVACY &#038; COOKIES</a></li>
+<li id="menu-item-645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-645"><a href="http://tasver.brighthemes.biz/contact-v2/">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                                <span class="bt-copyright">Copyrights 2017 Tasver. All rights reserved.</span>
+                            </div>
+                            <div class="bt-followus">
+                                                                <span>follow us</span>
+                                <ul class="bt-socialicons">
+                                                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                                    </ul>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <!--************************************
+        Footer End
+*************************************-->
+</div>
+<!--************************************
+        Wrapper End
+*************************************-->
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+{% for i in pro %}
+    <div class="mySlides">
+      <div class="numbertext"></div>
+      <img src="{{i.image.url}}" style="width:100%">
+			<h2>{{i.image_caption}}</h2>
+    </div>
+    {% endfor %}
+
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+{% for i in pro %}
+    <div class="column">
+      <img class="demo cursor" src="{{i.image.url}}" style="width:100%" onclick="currentSlide('{{forloop.counter}}')" alt="{{i.user}}">
+    </div>
+        {% endfor %}
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {                
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+
+<script>
+$('i.likes').click(function(){
+    var catid;
+    catid = $(this).attr("data-catid");
+    $.get('/page/', {image_id : catid}, function(data){
+			    location.reload(true);
+
+    });
+});
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/tasver.brighthemes.biz\/wp-json\/","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.8'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/vendor/bootstrap.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/jquery.cubeportfolio.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/tinycolor-0.9.16.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/jquery.scrollTo.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/jquery.pogoslider.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/touchswipe.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/jgallery.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/jquery.vide.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/prettyPhoto.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/slick.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/parallax.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/countTo.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/appear.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/themes/tasveer/js/themefunction.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-includes/js/wp-embed.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/plugins/wysija-newsletters/js/validate/languages/jquery.validationEngine-en.js?ver=2.7.10'></script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/plugins/wysija-newsletters/js/validate/jquery.validationEngine.js?ver=2.7.10'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"http:\/\/tasver.brighthemes.biz\/wp-admin\/admin-ajax.php","loadingTrans":"Loading...","is_rtl":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://tasver.brighthemes.biz/wp-content/plugins/wysija-newsletters/js/front-subscribers.js?ver=2.7.10'></script>
+</body>

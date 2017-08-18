@@ -45,20 +45,21 @@
 }     	
 .likepos{
 position:relative;
-top:-130px;
-left:49%;
+top:-100px;
+left:48%;
 font-weight: bold;
 color:skyblue;
 }
 body
 {
-            background-image: url("/static/assets/back4.jpg"); background-repeat: no-repeat; background-position: center; background-size: cover;
-}
+
+	background: red; 
+           }
 
 .buttonpos{
 	position:relative;
-	left:49%;
-	top:-192px;
+	left:48%;
+	top:-182px;
 	color:black;
 
 
@@ -76,9 +77,18 @@ body
     cursor: pointer;
     user-select: none;
 }
-
+.fa-heart {
+    color:red;
+    cursor: pointer;
+    user-select: none;
+}
 .fa:hover {
   color:green;
+}
+ 
+ 
+button:focus {
+    background:blue;
 }
 </style>
 
@@ -100,47 +110,44 @@ body
 <body class="subpage" >
 <!-- space between header and main content -->
 
-<section >
 <!-- contest -->
 
 	<ul class="contest-list">
 			<h2 style="color:white"> CURRENT ENTRIES</h2>
 	</ul>
 		<div id="open" class="tab-pane fade in active">
-
 <section class="container fill">
-<div class="container>"
+<div class="container">
 {% for i in pro %}
 
-<form method="POST" action="">
-	    {% csrf_token %}
                       <div class="col-md-6 col-sm-6 pad-0">
 						<div class="bg-contest" style="background-image:url({{i.image.url}})" onclick="openModal();currentSlide({{forloop.counter}});">
 							<div class="contest-overlay">
 								<div class="dt">
-									<div class="contest-overlay-inner">
+									<div class="contest-overlay-inner" >
 								
-										<div class="namepos">
-											  {{i.user}}</div>
-										<div class="likepos">
+										<div class="namepos" >
+											 <a href="{% url 'altprofile' i.user %}">{{i.user}}</a></div>
+										<div id="like_count"class="likepos">
 											{{i.like}}
-
 										</div>
+										<div id="like_show" class="buttonpos" onclick="">
+											{% if i.liked %}
+											<i data-catid="{{ i.image_id }}"   class="likes fa fa-heart fa-2x"  aria-hidden="true"></i>
+											{% else %}
+											<i data-catid="{{ i.image_id }}"   class="likes fa fa-heart-o fa-2x"  aria-hidden="true"></i>
 
-										<div class="buttonpos">
-                    <a href="{% url 'pages' i.image_id %}"><i class="fa fa-heart-o fa-2x"  aria-hidden="true"></i></a>
-										</div>
+											{% endif %}
+											</div>
 									</div>
 								</div>
 							</div>
 						</div>
 				
 					</div>
-</form>
 	{% endfor %}
 </div>
 </section>
-
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">
@@ -149,6 +156,7 @@ body
     <div class="mySlides">
       <div class="numbertext"></div>
       <img src="{{i.image.url}}" style="width:100%">
+			<h2>{{i.image_caption}}</h2>
     </div>
     {% endfor %}
 
@@ -208,8 +216,16 @@ function showSlides(n) {
 </script>
     
 
+<script>
+$('i.likes').click(function(){
+    var catid;
+    catid = $(this).attr("data-catid");
+    $.get('/page/', {image_id : catid}, function(data){
+			    location.reload(true);
 
-
+    });
+});
+</script>
 <script type="text/javascript" src="https://halla.in/front/dist/webapp.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>
 <script type="text/javascript">

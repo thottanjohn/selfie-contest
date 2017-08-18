@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Submit your Awesome Pics</title>
+    <style>
+        cent{
+            font-color:green;
+            text-align:center;
+        }
+        </style>
+<script src="https://use.fontawesome.com/68a1a56600.js"></script>
+{% include "body.html" %}
+    <br>
+    <br>
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-5">
+                    <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+            {{form.as_p}}
+        <input class="btn btn-default" type="submit" value="Upload"/>
+                    </form>
+</div>
+    </div>
+    </div>
+{% else %}
+<meta http-equiv="refresh" content="0; url=accounts/login">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endif %}
+<br>
+<br><br><br><br><br><br><br><br>
+{% endblock %}

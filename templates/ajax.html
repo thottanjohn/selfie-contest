@@ -1,0 +1,60 @@
+views.py
+
+@login_required
+def like_category(request):
+
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+
+    likes = 0
+    if cat_id:
+        cat = Cat.objects.get(id=int(cat_id))
+        if cat:
+            likes = cat.likes + 1
+            cat.likes =  likes
+            cat.save()
+
+    return HttpResponse(likes)
+rango-ajax.js
+
+$('#likes').click(function(){
+    var catid;
+    catid = $(this).attr("data-catid");
+    $.get('/rango/like_category/', {category_id: catid}, function(data){
+               $('#like_count').html(data);
+               $('#likes').hide();
+    });
+});
+category.html
+
+<p>
+
+<strong id="like_count">{{ category.likes }}</strong> people like this category
+
+{% if user.is_authenticated %}
+    <button id="likes" data-catid="{{ category.id }}" class="btn btn-primary" type="button">
+    <span class="glyphicon glyphicon-thumbs-up"></span>
+    Like
+    </button>
+{% endif %}
+
+</p>
+models.py
+
+from django.db import models
+from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
+
+class Category(models.Model):
+        name = models.CharField(max_length=128, unique=True)
+        views = models.IntegerField(default=0)
+        likes = models.IntegerField(default=0)
+        slug = models.SlugField(unique=True)
+
+        def save(self, *args, **kwargs):
+                self.slug = slugify(self.name)
+                super(Category, self).save(*args, **kwargs)
+
+        def __unicode__(self):
+                return self.name
