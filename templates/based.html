@@ -391,16 +391,7 @@ function showSlides(n) {
 </script>
     
 
-<script>
-$('i.likes').click(function(){
-    var catid;
-    catid = $(this).attr("data-catid");
-    $.get('/page/', {image_id : catid}, function(data){
-			    location.reload(true);
 
-    });
-});
-</script>
 <script type='text/javascript'>
 /* <![CDATA[ */
 var wpcf7 = {"apiSettings":{"root":"http:\/\/tasver.brighthemes.biz\/wp-json\/","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};

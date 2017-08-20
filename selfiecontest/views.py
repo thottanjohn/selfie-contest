@@ -10,10 +10,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import(
 	ProfileForm,UserForm)
 from django.contrib.auth.models import User
-from django.http import Http404,HttpResponse,HttpResponseRedirect
+from django.http import Http404,HttpResponse,HttpResponseRedirect,HttpResponsePermanentRedirect,JsonResponse
 	
 from django.db import transaction
-
+from django.template import RequestContext
 
 # Create your views here.
 def home(request):
@@ -87,7 +87,7 @@ def detail1(request):
 
 def page(request):
     flag=0
-    image_id=request.GET['image_id']
+    image_id=request.POST['image_id']
     us=Picto.objects.get(pk=image_id)
     users=userlike.objects.filter(image_id=image_id)
     if users.count() !=0:
@@ -121,9 +121,11 @@ def page(request):
         us.save()
         user.favourite=True
         user.save()
-    return
-
-
+    if user.favourite:
+        data={'like':us.like,'bol':1}
+    else:
+        data={'like':us.like,'bol':2}
+    return JsonResponse(data)
 def events(request):
     form = ContactForm(request.POST)
     if form.is_valid():
