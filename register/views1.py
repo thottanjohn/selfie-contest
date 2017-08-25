@@ -11,10 +11,10 @@ from django.utils.decorators import method_decorator
 from django.utils.module_loading import import_string
 from django.views.decorators.debug import sensitive_post_parameters
 
-from .forms import ResendActivationForm, RegistrationFormUniqueEmail
+from .forms import ResendActivationForm
 
 REGISTRATION_FORM_PATH = getattr(settings, 'REGISTRATION_FORM',
-                                 'register.forms.RegistrationForm')
+                                 'register.forms.RegistrationFormUniqueEmail')
 REGISTRATION_FORM = import_string(REGISTRATION_FORM_PATH)
 
 

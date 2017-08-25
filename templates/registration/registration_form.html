@@ -2,19 +2,79 @@
 {% load staticfiles %}
 
   {% block a  %}
-  	<title> SIGN UP- SelfieSpree</title>
-<meta charset="UTF-8" xmlns="http://www.w3.org/1999/html">
-  <link href="{% static 'css/stylers.css' %}"  rel="stylesheet" >
- {% include "body.html" %}
- <style>
- </style>
 
-  <br>
-  <br>
-<body>
-  <div id="login-box">
-  <div class="left">
-    <h1 style="color:darkgreen">Sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}Sign Up{% endblock %}</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Branded Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<!-- css files -->
+<link rel="stylesheet" href="{% static 'css/styleds.css' %}" type="text/css" media="all" /> <!-- Style-CSS --> 
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}"> <!-- Font-Awesome-Icons-CSS -->
+<!-- //css files -->
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <style type="text/css">
+   
+  input[type="text"],input[type="email"]
+   {
+     text-transform: lowercase;
+   }
+   label{
+     margin-top:2em; 
+     color: white;
+   }
+   </style>
+<!-- //online-fonts -->
+
+</head>
+<body class="subpage">
+<div class="w3-agile-banner">
+	<div class="center-container">
+		<!--header-->
+		<div class="header-w3l">
+            <br><br><br><br>
+			<h1><span>Sign Up</span> Form</h1>
+		</div>
+		<!--//header-->
+		<!--main-->
+		<div class="main-content-agile">
+			<div class="wthree-pro">
+				<h2>SignUp Now</h2>
+			</div>
+					<div class="social_icons">
+						<!-- Facebook -->
+						<div class="slide-social w3l">
+						<a href="{% url 'social:begin' 'facebook' %}">
+							<div class="button">Facebook</div>
+							<div class="facebook icon"> <i class="facebook"></i> </div>
+							<div class="facebook slide">
+								<p>Facebook</p>
+							</div>
+							<div class="clear"></div>
+							</a>
+						</div>
+						<!-- Twitter -->
+						<div class="slide-social w3l">
+						<a href="{% url 'social:begin' 'twitter' %}">
+							<div class="button">Twitter</div>
+							
+							<div class="twitter icon"> <i class="twitter"></i></div>
+							<div class="twitter slide">
+								<p>Twitter</p>
+							</div>
+							<div class="clear"></div>
+							</a> 
+						</div>
+			<div class="sub-main-w3">	
+  
   <form method="post" action=".">
     {% csrf_token %}
       {% for field in form %}
@@ -29,23 +89,23 @@
         {% endfor %}
       </p>
       {% endfor %}
-    <button type="submit">Sign up</button>
+    <input type="submit" value="Sign up"></button>
   </form>
-  </div>
-  <div class="right">
-    <br><br><br><br>
-    <br><br><br><br><br><br>
-     <a href="{% url 'social:begin' 'facebook' %}"><button class="social-signin facebook">Log in with facebook</button></a>
-     <a href="{% url 'social:begin' 'twitter' %}"><button class="social-signin twitter">Log in with Twitter</button></a>
-     <a href="{% url 'social:begin' 'github' %}"><button class="social-signin google">Log in with Github</button></a>
-
-  </div>
-  <div class="or" style="font-size: 25px;">OR</div>
+  		</div>
+		</div>
+		<!--//main-->
+		<!--footer-->
+		<!--//footer-->
+	</div>
 </div>
-  
-  
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
 </body>
 </html>
 {% endblock %}
 {% block b %}
 {% endblock %}
+  
+
+
