@@ -1,37 +1,28 @@
 {% extends "based.html" %}
 {% load i18n %}
 
-{% block content %}
-
+{% block a %}
 
 <!DOCTYPE html>
 <html>
 <script src="https://use.fontawesome.com/68a1a56600.js"></script>
 <head>
-	<title> LOGIN- SelfieSpree</title>
-    
+<title>{% block title %}Account Activate{% endblock %}</title>
+ <style>
+    .a{
+	margin-bottom: 40em;
+	margin-top: 4em;
+}
+	</style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 {% include "body.html" %} 
 
-	  <br>
-	  <br>
-	  <br>
 
+
+<div class="a">
 <p><center><b style="font-size: 30px; color:white">{% trans "Account activation failed" %}</b></center></p>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
+</div>
 {% endblock %}
 {% block b %}
 {% endblock %}

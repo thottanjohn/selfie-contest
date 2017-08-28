@@ -1,8 +1,8 @@
 
-{% extends "base.html" %}
+{% extends "based.html" %}
 
 {% load staticfiles%}
-{% block content %}
+{% block a %}
 <!DOCTYPE html>
 <html>
 <script src="https://use.fontawesome.com/68a1a56600.js"></script>
@@ -11,6 +11,19 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/navbar-static-top.css' %}" rel="stylesheet">
+     <link href="{% static 'css/textalign.css' %}" rel="stylesheet">
+     <link href="{% static 'css/mains.css' %}" rel="stylesheet">
+     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+     <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
 	<style type="text/css">
 		body{
 
@@ -46,7 +59,7 @@ ul{
 <div class="container">
 <center>
 <h2 style="font-size: 60px;">PROFILE</h2>
-{% if user.profile.pic.url %}
+ {% if user.profile.pic.url is not none %}
 <div class="circle">
 <img src="{{user.profile.pic.url}}" style=" display: block;
   width: 200px;
@@ -85,4 +98,6 @@ ul{
 
 </body>
 </html>
+{% endblock %}
+{% block b %}
 {% endblock %}

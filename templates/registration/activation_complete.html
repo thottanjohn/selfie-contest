@@ -7,21 +7,20 @@
 <html>
 <script src="https://use.fontawesome.com/68a1a56600.js"></script>
 <head>
-	<title> LOGIN- SelfieSpree</title>
-    
+<title>{% block title %}Account Activate{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+		   <style>
+.a{
+	margin-bottom: 40em;
+	margin-top: 4em;
+}
+	</style>
 	{% include "body.html" %} 
-<br>
-	  <br>
-	<p><center><b style="font-size: 30px; color:white">{% trans "Your account is now activated." %}</b></center>c</p>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="a">
+	<p><center><b style="font-size: 30px; color:white">{% trans "Your account is now activated." %}</b></center></p>
+	</div>
 {% endblock %}
 {% block b %}
 {% endblock %}

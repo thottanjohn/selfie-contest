@@ -1,14 +1,17 @@
  
 
-{% extends "base.html" %}
+{% extends "based.html" %}
 
 {% load staticfiles%}
-{% block content %}
-
+{% block a %}
 	<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap core CSS -->
+     <link href="{% static 'css/mains.css' %}" rel="stylesheet">
+     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
 		<title>SelfieSpree</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
     </head>
 

@@ -18,7 +18,7 @@
 function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Meta tag Keywords -->
 <!-- css files -->
-<link rel="stylesheet" href="{% static 'css/styled.css' %}" type="text/css" media="all" /> <!-- Style-CSS --> 
+<link rel="stylesheet" href="{% static 'css/styleds.css' %}" type="text/css" media="all" /> <!-- Style-CSS --> 
 <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}"> <!-- Font-Awesome-Icons-CSS -->
 <!-- //css files -->
 <!-- online-fonts -->
@@ -30,6 +30,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
    {
      text-transform: lowercase;
    }
+   .sub-main-w3 input[type="password"]{
+	margin-top: 1.5em;
+}
    </style>
 <!-- //online-fonts -->
 
@@ -80,12 +83,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<h4>or use your email</h4>
 					</div>
 			<div class="sub-main-w3">	
-				<form  method="post">
+				<form  method="post" action="">
                  {% csrf_token %}
-					<label for="id_username"></label> <input type="text" name="username" autofocus required id="id_username" maxlength="254" />
-                    <label for="id_password"></label> <input type="password" name="password" required id="id_password" />
+<input type="text" name="username" autofocus required id="id_username" maxlength="254" placeholder="username" />
+ <input type="password" name="password" required id="id_password" placeholder="password" />
+ {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+          
+                <strong style="color:red">{{ error }}</strong>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+            <strong style="color:red">{{ error }}</strong>
+
+    {% endfor %}
+{% endif %}
 					<div class="rem-w3">
-						<span class="check-w3"><input type="checkbox" />Remember Me</span>
 						<a class="w3-pass" href="/accounts/password/reset/" class="button">Forgot Password?</a>
 						<div class="clear"></div>
 					</div>
@@ -102,9 +116,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--footer-->
 		<!--//footer-->
 	</div>
-</div>
+</div>	
 <!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
 </body>
 </html>

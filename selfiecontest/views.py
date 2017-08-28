@@ -11,26 +11,12 @@ from .forms import(
 	ProfileForm,UserForm)
 from django.contrib.auth.models import User
 from django.http import Http404,HttpResponse,HttpResponseRedirect,HttpResponsePermanentRedirect,JsonResponse
-	
 from django.db import transaction
 from django.template import RequestContext
 
 # Create your views here.
 def home(request):
     title="welcome %s"%request.user
-    form = ContactForm(request.POST)
-    if form.is_valid():
-        form_mail = form.cleaned_data.get("email")
-        form_message = form.cleaned_data.get("message")
-        form_full_name = form.cleaned_data.get("full_name")
-        subject = 'site contact form'
-        from_email = form_mail
-        to_email = [settings.EMAIL_HOST_USER, ]
-        contact_message = form_message
-        send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
-    context = {
-        'forms': form
-        }
     return render(request,'index.html',context)
 """class EntryCreate(CreateView):
             model=Picto
@@ -84,7 +70,12 @@ def detail1(request):
         p.liked = p.has_liked(request.user)
     return render(request,"hala.html",{'pro':pro,'forms':form})
 
-
+@login_required
+def gallery(request):
+        pro=Picto.objects.all()
+        for p in pro:
+            p.liked = p.has_liked(request.user)
+        return render(request, 'gallery.html',{'pro':pro})
 def page(request):
     flag=0
     image_id=request.POST['image_id']
@@ -151,13 +142,11 @@ def view_profile(request):
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             return redirect('profile')
-        else:
-            messages.error(request, _('Please correct the error below.'))
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -220,8 +209,18 @@ def alt_profile(request,profile_id):
             raise Http404
         return render(request, 'altprofile.html', args)
 @login_required
-def gallery(request):
-        pro=Picto.objects.all()
-        for p in pro:
-            p.liked = p.has_liked(request.user)
-        return render(request, 'gallery.html',{'pro':pro})
+def contact(request):
+    form = ContactForm(request.POST)
+    if form.is_valid():
+        form_mail = form.cleaned_data.get("email")
+        form_message = form.cleaned_data.get("message")
+        form_full_name = form.cleaned_data.get("full_name")
+        subject = 'site contact form'
+        from_email = form_mail
+        to_email = [settings.EMAIL_HOST_USER, ]
+        contact_message = "Hello %s,Welcome to new era" % form_full_name
+        send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
+    context = {
+        'forms': form
+    }
+    return render(request, 'contact.html',context)
