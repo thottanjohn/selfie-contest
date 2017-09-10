@@ -1,88 +1,157 @@
-{% extends 'base.html' %}
+{% extends 'based.html' %}
 {% load staticfiles %}
-{% block content %}
-
-
-
-<!DOCTYPE HTML>
-
-	<head>
-		
-		<title>About Us</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{% static 'css/mains.css' %}" />
-
-
-        <style type="text/css">
-
-             body {
-             	    padding: 0; margin: 0;  background-image: url("/static/assets/back4.jpg") ; background-repeat: no-repeat; background-size: cover;
-                  }
-
-			.a
-			{
-				font-weight: bold;
-				color:white;
-			}
-.b
-{	
-	color:white;
-}
-.d
-{
-	color:white;
-
-}
-.text-md
-{
-	font-weight: :bold;
-	color;
-}
-.sp
-{
-	color: :white;
-} 
-
-        </style>
-    </head>
-
-	<body class="subpage">
-		<br><br><br>
-		<center>
-		<h2 class="a">- Our Mission -</h2>
-		<p class="b">To provide the most actionable app store data.</p>
-		</center>
-		<center>
-		<h2 class="a">-About-</h2></center>
-		<div class="" style="max-width: 74rem;"><p class="d" style="position:relative; left:20%;  ">At Apptopia, we all come to work every day because we want to solve the biggest problem in mobile. Everyone is guessing. 
-		Publishers don’t know what apps to build, how to monetize them, or even what to price them at. Advertisers &amp; brands don’t know where their target users are, how to reach them, or even how much they need to spend in order to do so. Investors aren’t sure which apps and genres are growing the quickest, and where users are really spending their time (and money).</p>
-		<p class="d" style="position: relative; left:20%;">Throughout the history of business, people use data to make more informed decisions. Our mission at Apptopia is to make the app economy more transparent. Today we provide the most actionable mobile app data &amp; 
-		insights in the industry. We want to make this data available to as many people as possible (not just the top 5%).</p></div>
-		</section>
-		<center>
-		<section class="scard card-lg p-b-0 text-xxs-center" style="color:white;"><h2 class="a">-Leadership-</h2>
-		<div class="row"><div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl"><img class="img-circle img-fluid m-x-auto m-b " style="  width: 150px; height: 150px; margin: 1em auto;-webkit-border-radius: 99em;-moz-border-radius: 99em; " 
-		src="{% static 'assets/pop_worrior_within-wallpaper-1366x768.jpg' %}" alt="John Tony" />
-		<h3 class="text-md text-bold"><b style="color: white;">-John Tony Thottan-</b></h3><p class="text-xxxs m-b-sm text-uppercase">Co-founder & CEO</p>
-		<p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;">John drives Apptopia’s strategic vision and manages investor relations. Before Apptopia Eli was involved in several startups, including: GPush, Oasys Water, GreatPoint Energy, and DVTel.</p>
-		<p class="text-xxs text-uppercase text-bold">JOHN’S FAVORITE APPS:</p><p class="text-xxs">Uber, One Note, & Yelp</p></div>
-		<div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl"><img class="img-circle img-fluid m-x-auto m-b" style="  width: 150px; height: 150px; margin: 1em auto;-webkit-border-radius: 99em;-moz-border-radius: 99em; " src="{% static 'assets/devil_may_cry_3-wallpaper-1366x768.jpg' %}" alt="Ashin Shanly" />
-		<h3 class="text-md text-bold"><b style="color:white;">-Ashin Shanly-</b></h3><p class="text-xxxs m-b-sm text-uppercase">Co-founder & COO</p>
-		<p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;">Ashin leads the daily operations at Apptopia, including product development and global sales. Jonathan is passionate about people, sports, and really efficient processes.</p>
-		<p class="text-xxs text-uppercase text-bold">ASHIN’S FAVORITE APPS:</p><p class="text-xxs">Spotify, Yahoo Sports, & Uber</p></div>
-				</center>
-	
-	<br><br><br><br>	<!-- Header -->			
-
-
-
-
-
-
-
-
-	</body>
+{% block style %}
 	{% endblock %}
-	{% block b %}
-	{% endblock %}
+{% block a %}
+	<!--************************************
+				Inner Page Banner Start
+		*************************************-->
+		<div class="bt-innerpagebanner bt-innerpagebannerv2 bt-fullheight" data-vide-bg="poster: {% static 'images/bg/bgaboutusv2' %}" data-vide-options="position: 0% 50%">
+			<figure>
+				<figcaption>
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="bt-innerbannercontent">
+									<h1>We are a Independent Digital Design<span>Studio Based in London</span></h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</figcaption>
+				<a id="bt-btnscrollto" class="bt-btnscrollto bt-btnscroll" href="#bt-main">scroll</a>
+			</figure>
+		</div>
+		<!--************************************
+				Inner Page Banner End
+		*************************************-->
+		<!--************************************
+				Main Start
+		*************************************-->
+		<main id="bt-main" class="bt-main bt-haslayout">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div id="bt-content" class="bt-content">
+							<section class="bt-sectionspace bt-borderbottom bt-haslayout">
+								<div class="bt-feature bt-experties">
+									<div class="bt-textbox">
+										<h2>Years of Experties</h2>
+										<div class="bt-description">
+											<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+										</div>
+									</div>
+									<div class="bt-textbox">
+										<div class="bt-description">
+											<p> The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here, making it look like readable English There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form injected humour</p>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="bt-sectionspace bt-borderbottom bt-haslayout">
+								<div class="bt-feature bt-whychooseus">
+									<div class="bt-textbox">
+										<h2>Why Choose Us</h2>
+										<div class="bt-description">
+											<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected</p>
+										</div>
+									</div>
+									<div class="bt-textbox">
+										<div class="bt-description">
+											<p> The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here, making it look like readable English There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form injected humour</p>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="bt-sectionspace bt-haslayout">
+								<div class="bt-feature bt-philosophy">
+									<div class="bt-textbox">
+										<h2>Our Philosophy</h2>
+										<div class="bt-description">
+											<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected</p>
+										</div>
+									</div>
+									<div class="bt-textbox">
+										<div class="bt-description">
+											<p> The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here, making it look like readable English There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form injected humour</p>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="bt-sectionspace bt-toppaddingzero bt-haslayout">
+								<div class="bt-members bt-membersv2">
+									<h2>Meet The New School<span>of Photography</span></h2>
+									<div class="row">
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="bt-member">
+												<figure><img src="{% static 'images/members/img-02.jpg' %}" alt="image description"></figure>
+												<div class="bt-membercontent">
+													<div class="bt-membername">
+														<h3>John Larry</h3>
+													</div>
+													<span class="bt-memberdesignation">Co-Founder &amp; CFO</span>
+													
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+											<div class="bt-member">
+												<figure><img src="{% static 'images/members/img-01.jpg' %}" alt="image description"></figure>
+												<div class="bt-membercontent">
+													<div class="bt-membername">
+														<h3>John Larry</h3>
+													</div>
+													<span class="bt-memberdesignation">Co-Founder &amp; CFO</span>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<div class="bt-sectionpattren bt-haslayout"></div>
+							<section class="bt-sectionspace bt-haslayout">
+								<div class="bt-counters">
+									<div class="bt-counter">
+										<div class="bt-count">
+											<h3 data-from="0" data-to="3504" data-speed="8000" data-refresh-interval="50">3504</h3>
+										</div>
+										<div class="bt-countertitle">
+											<h3>This Week Clicks</h3>
+										</div>
+									</div>
+									<div class="bt-counter">
+										<div class="bt-count">
+											<h3 data-from="0" data-to="2" data-speed="8000" data-refresh-interval="50">02</h3>
+										</div>
+										<div class="bt-countertitle">
+											<h3>Lead Photography</h3>
+										</div>
+									</div>
+									<div class="bt-counter">
+										<div class="bt-count">
+											<h3 data-from="0" data-to="160" data-speed="8000" data-refresh-interval="50">160</h3>
+										</div>
+										<div class="bt-countertitle">
+											<h3>Over all Clients</h3>
+										</div>
+									</div>
+									<div class="bt-counter">
+										<div class="bt-count">
+											<h3 data-from="0" data-to="3" data-speed="8000" data-refresh-interval="50">03</h3>
+										</div>
+										<div class="bt-countertitle">
+											<h3>Locations</h3>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--************************************
+				Main End
+        *************************************-->
+        {% endblock %}

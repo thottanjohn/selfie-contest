@@ -134,9 +134,9 @@ def events(request):
     return render(request,"events.html",context)
 @login_required
 def view_profile(request):
-	args={'user':request.user}
-	return render(request, 'profile.html', args)
-	
+    entries=Picto.objects.filter(user=request.user)
+    args={'user':request.user,'entries':entries}
+    return render(request, 'profile1.html', args)
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -169,7 +169,7 @@ def about(request):
     context = {
         'forms': form
     }
-    return render(request,"about1.html",context)
+    return render(request,"about.html",context)
 @login_required
 @transaction.atomic
 def EntryCreate(request):
@@ -204,7 +204,8 @@ def GreenEntryCreate(request):
 def alt_profile(request,profile_id):
     	try:
             user = User.objects.get(username=profile_id)
-            args={'user':user}
+            entries=Picto.objects.filter(user=profile_id)
+            args={'user':user,'entries':entries}
         except:
             raise Http404
         return render(request, 'altprofile.html', args)

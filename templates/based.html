@@ -101,8 +101,10 @@ height:  auto;
 						</ul>
 					</div>
 				</nav>
+				 {% block header %}
 				<header id="bt-header" class="bt-header bt-headervfour bt-headerinnerpage bt-headerinnerpagev1 bt-haslayout">
 					<div class="container-fluid">
+				{% endblock %}
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<strong class="bt-logo"><a href="#"><img src="{% static 'images/logo.png' %}" alt="image description"></a></strong>
 							<div class="bt-navigationarea">
@@ -136,7 +138,9 @@ height:  auto;
 										<a href="{% url 'register:registration_register' %}">SignUp</a>
 									</li>
 									{% endif %}
+									{% block icon %}
 									<li><a class="bt-btntogglemenu" href="javascript:void(0);"><img src="{% static 'images/icons/icon-01.png' %}" alt="image description"></a></li>
+									{% endblock %}
 								</ul>
 							</div>
 						</div>
