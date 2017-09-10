@@ -1,0 +1,75 @@
+{% extends 'basis.html' %}
+		<article id="contact" class="off"> 
+			<div class="container">
+				<div class="sixteen columns"> 
+					<h1>Contact</h1>
+				</div>
+				<div class="sixteen columns"> 
+					<div class="sep"></div> 
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="map"></div>
+			<div id="contact-details">
+				<div class="container">
+					<div class="sixteen columns"> 
+						<h3>Contact Details</h3>
+					</div>
+					<div class="sixteen columns"> 
+						<div class="sep1"></div> 
+					</div>
+					<div class="one-third column"> 
+						<div class="icon-contact">&#xf015;</div>
+						<div class="detail"> 
+							<p>100 Biscayne Blvd. (North) 21st Floor New World Tower Miami, Florida 33148</p>
+						</div>
+					</div>	
+					<div class="one-third column">
+						<div class="icon-contact">&#xf095;</div> 
+						<div class="detail"> 
+							<p>(305) 555-4446</p>
+							<p>(305) 555-4457</p>
+						</div>
+					</div>	
+					<div class="one-third column"> 
+						<div class="icon-contact">&#xf003;</div>
+						<div class="detail">
+							<p>general: office@yoursite.com</p>
+							<p>support: support@example.com</p> 
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div id="contact-mes">
+				<div class="container">
+					<div class="sixteen columns"> 
+						<h3>Drop Us a Line</h3>
+					</div>
+					<div class="sixteen columns"> 
+						<div class="sep1"></div> 
+					</div>
+				</div>
+				<div class="container">
+					<div class="sixteen columns">
+							<form action="" method="post">
+									{% csrf_token %}
+							<label for="name">Name: * 
+								<span class="error" id="err-name">please enter name</span>
+							</label>
+							<input  name="full_name"  type="text" required id="id_full_name" />
+							<label for="email">E-Mail: * 
+								<span class="error" id="err-email">please enter e-mail</span>
+								<span class="error" id="err-emailvld">e-mail is not a valid format</span>
+							</label>
+							<input name="email"  required id="id_email" type="email" />
+							<label for="message">Message:</label>
+							<textarea name="message" id="message" placeholder="Message" required></textarea>
+							<button class="send_message" id="send">Submit</button>
+							<div class="error" id="err-form">There was a problem validating the form please check!</div>
+							<div class="error" id="err-timedout">The connection to the server timed out!</div>
+							<div class="error" id="err-state"></div>
+						</form>
+						<div id="ajaxsuccess">Successfully sent!!</div>	
+					</div>	
+				</div>
+			</div>

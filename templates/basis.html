@@ -1,0 +1,260 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+
+<!-->
+<html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>{% block title %}Vulcan{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Mobile Specific Metas
+
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="{% static 'css3/base.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css3/skeleton.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css3/layout.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css3/colorbox.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css3/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css3/jquery.custombox.css' %}">
+	<link rel="stylesheet" href="{% static 'css3/retina.css' %}"/>
+	<link rel="alternate stylesheet" type="text/css" href="{% static 'css3/colors/color-orange.css' %}" title="orange">
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css3/colors/color-green.css' %}" title="green">
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css3/colors/color-red.css' %}" title="red">
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css3/colors/color-blue.css' %}" title="blue">
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css3/colors/color-yellow.css' %}" title="yellow">
+	
+	
+	
+    <!--[if lte IE 8]>
+        <script src="js/html5.js"></script>
+    <![endif]-->		
+		
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="{% static 'favicon.png' %}">
+	<link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'apple-touch-icon-114x114.png' %}">
+</head>
+<body>
+
+	
+	
+	<!-- Primary Page Layout
+	================================================== -->
+	<div id="preloader"></div>
+	
+	<div id="menu-wrap">
+		<div class="logo"></div>
+		<ul class="slimmenu">
+			<li> 
+				<a href="javascript:goTo('home');">home</a>
+			</li>
+			<li>
+				<a href="javascript:goTo('about');">about</a>
+			</li>
+			<li> 
+				<a href="javascript:goTo('services');">services</a>
+			</li>
+			<li>
+				<a href="javascript:goTo('folio');">portfolio</a>
+			</li>
+			<li>
+				<a href="javascript:goTo('contact');">contact</a>
+			</li>
+			<li>
+				<a href="javascript:goTo('blog');">blog</a>
+			</li>
+		</ul>
+	</div>	
+	
+
+	<section id="content">
+{% block b %}
+{% endblock %}
+
+
+
+	
+
+
+		
+	</section>
+    {% block a  %}
+		<div class="footer">
+				<div class="container">
+					<div class="sixteen columns"> 
+						<a href="javascript:goTo('home');"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+					</div>
+					<div class="sixteen columns"> 
+						<p><span>© Vulcan - a HTML 5 template with serious impact. Created by</span> IG Design</p>
+					</div>
+					<div class="sixteen columns"> 
+						<div class="social-bottom">
+							<ul class="bottom-social">
+								<li class="icon-bottom"><a href="#">&#xf099;</a></li>
+								<li class="icon-bottom"><a href="#">&#xf09a;</a></li>
+								<li class="icon-bottom"><a href="#">&#xf09b;</a></li>
+								<li class="icon-bottom"><a href="#">&#xf0d5;</a></li>
+							</ul>	
+						</div> 
+					</div>
+				</div>	
+			</div>	
+	{% endblock %}
+    <div id="modal" style="display: none;" class="modal-example-content">
+		<button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="services-wrap">  
+					<div class="services-wrap-icon">
+						<img src="{% static 'images/ser1.png' %}" alt=""/> 
+					</div>		
+				</div>
+			<h5>Responsive Design</h5>
+			</div>
+			<div class="sixteen columns">
+				<div class="modal-example-body">  
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including.</p>
+				</div>	
+			</div>
+		</div>
+    </div>	
+	
+	
+	
+	
+	
+    <div id="modal1" style="display: none;" class="modal-example-content">
+		<button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="services-wrap">  
+					<div class="services-wrap-icon">
+						<img src="{% static 'images/ser2.png' %}" alt=""/> 
+					</div>		
+				</div>
+			<h5>Video Marketing</h5>
+			</div>
+			<div class="sixteen columns">
+				<div class="modal-example-body">  
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including.</p>
+				</div>	
+			</div>
+		</div>
+    </div>		
+	
+	
+	
+	
+    <div id="modal2" style="display: none;" class="modal-example-content">
+		<button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="services-wrap">  
+					<div class="services-wrap-icon">
+						<img src="{% static 'images/ser3.png' %}" alt=""/> 
+					</div>		
+				</div>
+			<h5>Search Engine</h5>
+			</div>
+			<div class="sixteen columns">
+				<div class="modal-example-body">  
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including.</p>
+				</div>	
+			</div>
+		</div>
+    </div>		
+	
+	
+	
+    <div id="modal3" style="display: none;" class="modal-example-content">
+		<button type="button" class="close" onclick="$.fn.custombox('close');">&times;</button>
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="services-wrap">  
+					<div class="services-wrap-icon">
+						<img src="{% static 'images/ser4.png' %}" alt=""/> 
+					</div>		
+				</div>
+			<h5>Monitoring</h5>
+			</div>
+			<div class="sixteen columns">
+				<div class="modal-example-body">  
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including.</p>
+				</div>	
+			</div>
+		</div>
+    </div>		
+	
+
+    <!-- Switch Panel -->
+    <div id="switch">
+        <div class="content-switcher" >        
+			<p>Color Options:</p>
+			<ul class="header">            
+				<li><a href="#" onClick="setActiveStyleSheet('orange'); return false;" class="button color switch" style="background-color:#d35400"></a></li>
+				<li><a href="#" onClick="setActiveStyleSheet('green'); return false;" class="button color switch" style="background-color:#2ecc71"></a></li>
+				<li><a href="#" onClick="setActiveStyleSheet('red'); return false;" class="button color switch" style="background-color:#e74c3c"></a></li>
+				<li><a href="#" onClick="setActiveStyleSheet('blue'); return false;" class="button color switch" style="background-color:#3498db"></a></li>
+				<li><a href="#" onClick="setActiveStyleSheet('yellow'); return false;" class="button color switch" style="background-color:#f1c40f"></a></li>
+			</ul>        
+			<div class="clear"></div>        
+			<p>Page Templates:</p> 
+			<div class="home-options">
+				<a href="http://ivang-design.com/vulcan/slider/">Multi-Page Slider</a>
+				<a href="http://ivang-design.com/vulcan/sliderop/">One-Page Slider</a>
+				<a href="http://ivang-design.com/vulcan/videoop/">One-Page Video</a>
+				<a href="http://ivang-design.com/vulcan/animated/">Animated Layout</a>
+				<a href="http://ivang-design.com/vulcan/animated2/">Animated Layout 2</a>
+				<a href="http://ivang-design.com/vulcan/parallax/">Parallax Version</a>
+				<a href="http://ivang-design.com/vulcan/showcaseslider/">Showcase Slider</a>
+				<a href="http://ivang-design.com/vulcan/splash/">Splash Intro</a>
+				<a href="http://ivang-design.com/vulcan/rotatingwords/">Rotating Words</a>
+			</div> 
+			<div id="hide">
+				<img  src="{% static 'images/close.png' %}" alt="" /> 
+			</div>
+        </div>
+	</div>
+	<div id="show" style="display: block;">
+        <div id="setting"></div>
+    </div>
+    <!-- Switch Panel -->
+	
+
+	
+	<!-- JAVASCRIPT
+    ================================================== -->
+<script type="text/javascript" src="{% static 'js1/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/styleswitcher.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/pace.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/retina-1.1.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/modernizr.custom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.slimmenu.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js1/jquery.bxslider.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.easing.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.custombox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.colorbox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.transit.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.isotope.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.masonry.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/jquery.fitvids.js' %}"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 		
+<script type="text/javascript" src="{% static 'js1/gmaps.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/contact.js ' %}"></script>
+<script type="text/javascript" src="{% static 'js1/template.js' %}"></script>  	  
+<!-- End Document
+================================================== -->
+</body>
+</html>

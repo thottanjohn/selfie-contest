@@ -1,6 +1,31 @@
 {% extends 'based.html' %}
-{% block a %}
-<style>
+{% load staticfiles %}
+{% block style %}
+      <link href="{% static 'css/lightbox.css' %}" rel="stylesheet"> 
+            <style type="text/css">
+.fa-heart-o {
+    color:red;
+    cursor: pointer;
+    user-select: none;
+}
+.fa-heart {
+    color:red;
+    cursor: pointer;
+    user-select: none;
+}
+.fa:hover {
+  color:green;
+}
+ 
+ 
+button:focus {
+    background:blue;
+}
+img.resize
+{
+    width:50%;
+    height:50%;
+}
 .head
     {   
         display: block;
@@ -18,30 +43,88 @@
         color: white;
     }
     </style>
+    {% endblock %}
     <!-- Banners -->
+    {% block a %}
          {% csrf_token %}
-<div class="bt-innerpagebanner bt-innerpagebannerv2 bt-fullheight" data-vide-bg="poster: http://tasver.brighthemes.biz/wp-content/uploads/2017/06/banner-01.jpg" data-vide-options="position: 0% 50%">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="bt-innerbannercontent">
-                    <h1>Green Vibes</h1>
-                </div>
+            <div class="bt-innerpagebanner bt-innerpagebannerv2 bt-fullheight">
+                <figure class="bt-fullheight" data-vide-bg="poster:{% static 'images/bg/banner-01' %}" data-vide-options="position: 0% 50%">
+                    <figcaption>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="bt-innerbannercontent">
+                                        <h1>Gallery 3 Columns Wide</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figcaption>
+                    <a id="bt-btnscrollto" class="bt-btnscrollto bt-btnscroll" href="#bt-main">scroll</a>
+                </figure>
             </div>
-        </div>
-    </div>
-    <a id="bt-btnscrollto" class="bt-btnscrollto bt-btnscroll" href="#bt-main">scroll</a>
-</div>
-<main id="bt-main" class="bt-main bt-haslayout">
-  <center>  <div class="head">
-    Current Entries
-</div></center>
-        <div class="vc_row wpb_row vc_row-fluid">
+    <main id="bt-main" class="bt-main bt-haslayout">
+                        <center>
+                            <div class="head">
+                        Current Entries
+                            </div>
+                        </center>
+        <div id="bt-threecolumnscubevonegallery" class="bt-photogallery bt-photogallerythreecolumns bt-threecolumnscubegallery cbp">
             <div class="wpb_column vc_column_container vc_col-sm-12">
+                    {% for i in pro %}
+                        <div class="cbp-item">
+                            <article class="bt-album">
+                                <figure>
+                                        <div onclick="openModal();currentSlide({{forloop.counter}});" >
+                                            <img style="height:450px;" src="{{i.image.url}}" alt="image description">
+                                        </div>
+                                    <figcaption>
+                                        <div class="bt-titleandinfo">
+                                            <div class="bt-albumtitle">
+                                                    <h3><a href="{% url 'altprofile' i.user %}">{{i.user}}</a></h3>
+                                            </div>
+                                            <ul class="bt-shareandlikes">
+                                                <li>
+                                                    <div class="bt-shapreicons">
+                                                        <a href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                                                        <a href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
+                                                        <a href="javascript:void(0);"><i class="fa fa-pinterest-p"></i></a>
+                                                    </div>
+                                                    <a class="bt-btnshare" href="javascript:void(0);">
+                                                        <span class="icon-share4"></span>
+                                                        <span>Share</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                        <div  class="buttonpos" onclick="">
+                                                            <span>
+                                                                {% if i.liked %}
+                                                                <i data-catid="{{ i.image_id }}"   class="likes {{i.image_id}} fa fa-heart fa-2x"  aria-hidden="true"  ></i>
+                                                                {% else %}
+                                                                <i data-catid="{{ i.image_id }}"   class="likes {{i.image_id}} fa fa-heart-o fa-2x"  aria-hidden="true"  ></i>
+                                                                {% endif %}
+                                                            </span>
+                                                        </div>
+                                               </li>
+                                                <li>
+                                                    <span>
+                                                        <div id="{{i.image_id}}">
+                                                        {{i.like}}
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                     {% endfor %}
+                         <!--
               <div class="vc_column-inner ">
                   <div class="wpb_wrapper">
                       <div id="galleryGeneral" class="bt-photogallery cbp" data-columnspace="0" data-gallerycolumns="3">
-                     
+                    
                           {% for i in pro %}
                           <div class="cbp-item gallery-3-columns-wide"  >
                        <figure >
@@ -95,9 +178,14 @@
                     </div>
                 </div>
             </div>
+        </div>-->
         </div>
     </div>
 </main>
+{% endblock %}
+{% block newsletter %}
+{% endblock %}
+{% block script %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 $('i.likes').click(function(){
@@ -200,9 +288,4 @@ function showSlides(n) {
     
 
 {% endblock %}
-{% block b %}
-{% endblock %}
-      <!--************************************
-                    Footer Start
-            *************************************-->
       

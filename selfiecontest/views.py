@@ -17,7 +17,7 @@ from django.template import RequestContext
 # Create your views here.
 def home(request):
     title="welcome %s"%request.user
-    return render(request,'index.html',context)
+    return render(request,'index.html')
 """class EntryCreate(CreateView):
             model=Picto
             form_class=Picto
@@ -218,7 +218,7 @@ def contact(request):
         subject = 'site contact form'
         from_email = form_mail
         to_email = [settings.EMAIL_HOST_USER, ]
-        contact_message = "Hello %s,Welcome to new era" % form_full_name
+        contact_message = form_message
         send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
     context = {
         'forms': form

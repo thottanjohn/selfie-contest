@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^profile/(?P<profile_id>[\w\-]+)$', views.alt_profile, name='altprofile'),
     url(r'^edit$', views.update_profile, name='edit_profile'),
     url(r'^accounts/', include('register.urls')),
+    
    
 ]
 
