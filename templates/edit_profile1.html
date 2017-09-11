@@ -1,0 +1,72 @@
+{% extends "based.html" %}
+{% load staticfiles%}
+{% block style %}
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta tags -->
+<!-- font-awesome-icons -->
+<link href="{% static 'css2/font-awesome.css' %}" rel="stylesheet"> 
+<!-- //font-awesome-icons -->
+<!-- Stylesheet -->
+<link href="{% static 'css2/style.css ' %}" rel='stylesheet' type='text/css' />
+<!-- //Stylesheet -->
+<!--fonts--> 
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+<style>
+body{
+    background: url("{% static 'images/parallax/2.1.jpg' %}") no-repeat  ; 
+}
+     label{
+     color: white;
+     margin-top:2em;
+   }
+    input[type="email"]{
+        text-transform: lowercase;
+    }
+    .a{
+        margin-top:8em;
+    }
+    .bt-newsletter,.bt-instagramgallery
+{
+    margin-top: 10em;
+}
+.button{
+    margin-top:2em;
+}
+btn-primary:hover {
+    background-color: green;
+
+}
+
+</style>
+{% endblock %}
+{% block a %}
+<main id="bt-main" class="bt-main bt-haslayout a">
+        <h1> <span>U</span>pdate <span>Y</span>our <span>P</span>rofile</h1>
+<div class="bg-agile">
+        <div class="book-appointment">
+            	<h2>Profile Details</h2>
+                            <div class="book-form agileits-login">
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+                                    <div style="color:white" class="agileits_reservation_grid">
+                                            {{ user_form.as_p }}
+                                            {{ profile_form.as_p }}
+                                            <a href="/accounts/password/change/" class="button btn btn-primary">Change Password</a></center>
+                                        <div class="clear"></div>
+                                    </div> 
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div>
+            </div>
+       </div>
+    </div>
+</main>
+       {% endblock %}
+       {% block script %}
+            <script type="text/javascript" src="{% static 'js2/jquery-2.1.4.min.js' %}"></script>
+            <!-- Calendar -->
+                    <link rel="stylesheet" href="{% static 'css2/jquery-ui.css' %}" />
+                    <script src="{% static 'js2/jquery-ui.js' %}"></script>
+        {% endblock %}

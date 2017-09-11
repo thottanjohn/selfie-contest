@@ -1,7 +1,7 @@
 {% extends "based.html" %}
 {% load i18n %}
 
-{% block a %}
+{% block style %}
 
 <!DOCTYPE html>
 <html>
@@ -17,10 +17,12 @@
 }
 	</style>
 	{% include "body.html" %} 
-
+	{% endblock %}
+	{% block a %}
 <div class="a">
 	<p><center><b style="font-size: 30px; color:white">{% trans "Your account is now activated." %}</b></center></p>
 	</div>
+</main>
 {% endblock %}
-{% block b %}
+{% block newskletter %}
 {% endblock %}

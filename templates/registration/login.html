@@ -2,14 +2,10 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
+{% block title %}Login{% endblock %}
 
-{% block a %}
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>{% block title %}Login{% endblock %}</title>
+{% block style %}
 <!-- Meta tag Keywords -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,11 +29,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
    .sub-main-w3 input[type="password"]{
 	margin-top: 1.5em;
 }
+.bt-newsletter,.bt-instagramgallery
+{
+    margin-top: 10em;
+}
    </style>
 <!-- //online-fonts -->
 
-</head>
-<body class="subpage">
+		{% endblock %}
+		{% block a %}
+<main id="bt-main" class="bt-main bt-haslayout">
 <div class="w3-agile-banner">
 	<div class="center-container">
 		<!--header-->
@@ -119,8 +120,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </div>	
 <!-- js -->
 <!-- //js -->
-</body>
-</html>
+</main>
 {% endblock %}
-{% block b %}
-{% endblock %}
+
+

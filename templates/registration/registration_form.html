@@ -1,12 +1,7 @@
 {% extends "based.html" %}
 {% load staticfiles %}
-
-  {% block a  %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>{% block title %}Sign Up{% endblock %}</title>
+{% block title %}Sign Up{% endblock %}
+{% block style %}
 <!-- Meta tag Keywords -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,9 +28,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
    }
    </style>
 <!-- //online-fonts -->
-
-</head>
-<body class="subpage">
+{% endblock %}
+{% block a %}
+<main id="bt-main" class="bt-main bt-haslayout">
 <div class="w3-agile-banner">
 	<div class="center-container">
 		<!--header-->
@@ -97,15 +92,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--footer-->
 		<!--//footer-->
 	</div>
-</div>
-<!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
-</body>
-</html>
+</div></main>
 {% endblock %}
-{% block b %}
-{% endblock %}
+
+
+
   
 
 

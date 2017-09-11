@@ -1,25 +1,24 @@
 {% extends "based.html" %}
 {% load i18n %}
 {% load staticfiles%}
-{% block a %}
-<!DOCTYPE html>
-<html>
+{% block style %}
 <script src="https://use.fontawesome.com/68a1a56600.js"></script>
-<head>
 	<title>{% block title %}Registration Completed{% endblock %}</title>   
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-	{% include "body.html" %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />	
 <style>
 .a{
 	margin-bottom: 40em;
 	margin-top: 4em;
 }
 	</style>
+	{% include "body.html" %}
+	{% endblock %}
+	{% block a %}
 <div class="a">
     <p><center><b style="font-size: 30px; color:white">{% trans " You are now registered. Activation email sent. Please go to your email and click your activaton link " %}</b></p>
 </div>
-</body>
+</main>
 {% endblock %}
 {% block b %}
 {% endblock %}

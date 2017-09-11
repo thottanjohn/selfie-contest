@@ -235,7 +235,9 @@ height:  auto;
 	{% endblock %}
 	{% block script %}
 	{% endblock %}
+	{% block jquery-library %}
 	<script src="{% static 'js3/vendor/jquery-library.js' %}"></script>
+	{% endblock %}
 	<script src="{% static 'js3/vendor/bootstrap.min.js' %}"></script>
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCR-KEWAVCn52mSdeVeTqZjtqbmVJyfSus&amp;language=en"></script>
 	<script src="{% static 'js3/jquery.cubeportfolio.min.js' %}"></script>
@@ -251,7 +253,9 @@ height:  auto;
 	<script src="{% static 'js3/countTo.js' %}"></script>
 	<script src="{% static 'js3/appear.js' %}"></script>
 	<script src="{% static 'js3/gmap3.js' %}"></script>
+	{% block theme %}
 	<script src="{% static 'js3/themefunction.js' %}"></script>
+	{% endblock %}
 </body>
 
 <!-- Mirrored from wahabali.com/work/tasver/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Sep 2017 09:06:03 GMT -->

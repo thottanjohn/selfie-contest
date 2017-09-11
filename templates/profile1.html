@@ -1,6 +1,17 @@
 
 {% extends "based.html" %}
 {% load staticfiles%}
+{% block style %}
+<style>
+.button{
+    margin-top:3em;
+    background-color:grey; 
+}
+.button:hover{
+    background-color:black; 
+}
+</style>
+{% endblock %}
 {% block header %}
 <header id="bt-header" class="bt-header bt-headervfour bt-haslayout">
         <div class="container">
@@ -43,8 +54,9 @@
                                         <span>Email:</span>
                                         <strong style="text-transform:lowercase;">{{ user.email }}</strong>
                                     </li>
+                                    <br>
                                     <li>
-                                        <a href="{% url 'edit_profile' %}" class="button">EditProfile</a>
+                                    <a href="{% url 'edit_profile' %}" class="button btn btn-primary">EditProfile</a>
                                     </li>
                                 </ul>
                             </div>
